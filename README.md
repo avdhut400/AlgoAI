@@ -20,6 +20,7 @@ AlgoAI is a **full-stack AI-powered SaaS platform** that provides multiple AI ut
 ---
 
 ## 🏗️ Project Structure
+```bash
 
 AlgoAI/
 │
@@ -48,18 +49,20 @@ AlgoAI/
 ├── LICENSE
 ├── README.md
 
+```
+---
+
+🛠️ Tech Stack
 
 ---
 
-## 🛠️ Tech Stack
-
-### Frontend
+ Frontend
 - React (Vite)
 - Tailwind CSS
 - Axios
 - Lucide Icons
 
-### Backend
+ Backend
 - Node.js
 - Express (v4)
 - Clerk Authentication
@@ -68,17 +71,17 @@ AlgoAI/
 - Multer
 - Express Rate Limiter
 
-### AI Services
+ AI Services
 - Google Gemini API
 - Image Processing APIs
 
-### Deployment
+ Deployment
 - Frontend: **Vercel**
 - Backend: **Render**
 
 ---
 
-## 🔐 Authentication & Security
+ 🔐 Authentication & Security
 
 - Authentication handled using **Clerk**
 - Protected API routes using middleware
@@ -88,23 +91,23 @@ AlgoAI/
 
 ---
 
-## 🌍 Live URLs
+ 🌍 Live URLs
 
 - **Frontend:** https://algo-ai-zeta.vercel.app  
 - **Backend:** https://algoai-1.onrender.com  
 
 ---
 
-## ⚙️ Environment Variables
+⚙️ Environment Variables
 
-### Frontend (`client/.env`)
+Frontend 
 ```env
 VITE_BASE_URL=https://algoai-1.onrender.com
 VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxx
 ```
 ---
 
-###Backend (server/.env)
+Backend (server/.env)
 ```env
 NODE_ENV=production
 DATABASE_URL=your_neon_database_url
@@ -115,7 +118,7 @@ CLOUDINARY_API_KEY=xxxx
 CLOUDINARY_API_SECRET=xxxx
 FRONTEND_URL=https://algo-ai-zeta.vercel.app
 ```
-###How to Run Locally
+How to Run Locally
 Clone Repository
 
 ```bash
