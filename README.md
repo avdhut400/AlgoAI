@@ -91,7 +91,16 @@ AlgoAI/
 
 ---
 
- 🌍 Live URLs
+🖼️ Screenshots
+
+<img width="1853" height="924" alt="Opera Snapshot_2026-01-28_005705_algo-ai-zeta vercel app" src="https://github.com/user-attachments/assets/9b0e4c22-4e8c-488e-ac35-367a1b4839ab" />
+<img width="1853" height="924" alt="Opera Snapshot_2026-01-28_005642_algo-ai-zeta vercel app" src="https://github.com/user-attachments/assets/2bf14a3a-7a42-4a7d-8b50-9e596a571638" />
+<img width="1853" height="924" alt="Opera Snapshot_2026-01-28_005518_algo-ai-zeta vercel app" src="https://github.com/user-attachments/assets/5f930861-331f-43b8-a7f1-0ebb8f55c0b2" />
+<img width="1853" height="924" alt="Opera Snapshot_2026-01-28_005438_algo-ai-zeta vercel app" src="https://github.com/user-attachments/assets/b6ee482d-7126-4953-8d3f-02df3c423514" />
+
+---
+
+🌍 Live URLs
 
 - **Frontend:** https://algo-ai-zeta.vercel.app  
 - **Backend:** https://algoai-1.onrender.com  
