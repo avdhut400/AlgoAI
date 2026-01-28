@@ -62,84 +62,6 @@
 // })
 
 
-
-
-// import express from "express";
-// import cors from "cors";
-// import "dotenv/config";
-// import { clerkMiddleware, requireAuth } from "@clerk/express";
-
-// import aiRouter from "./routes/aiRoutes.js";
-// import connectCloudinary from "./configs/cloudinary.js";
-// import userRouter from "./routes/userRoutes.js";
-// import dashboardRoutes from "./routes/dashboard.js";
-
-// const app = express();
-
-// /* -------------------- INIT -------------------- */
-// await connectCloudinary();
-
-// const isProd = process.env.NODE_ENV === "production";
-
-// /* -------------------- CORS (MUST BE FIRST) -------------------- */
-// app.use(
-//   cors({
-//     origin: isProd
-//       ? process.env.FRONTEND_URL // https://algo-ai-zeta.vercel.app
-//       : "http://localhost:5173",
-//     credentials: true,
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//   })
-// );
-
-// /* ✅ IMPORTANT: allow preflight WITHOUT auth */
-// app.options("*", cors());
-
-// /* -------------------- MIDDLEWARES -------------------- */
-// app.use(express.json());
-// app.use(clerkMiddleware());
-
-// /* -------------------- PUBLIC ROUTE -------------------- */
-// app.get("/", (req, res) => {
-//   res.send("Server is Live!");
-// });
-
-// /* -------------------- PROTECTED ROUTES -------------------- */
-// /* ❌ NEVER use global requireAuth() */
-
-// app.use("/api/ai", requireAuth(), aiRouter);
-// app.use("/api/user", requireAuth(), userRouter);
-// app.use("/api", requireAuth(), dashboardRoutes);
-
-// /* -------------------- TEST ROUTE -------------------- */
-// app.get("/api/test-ai", requireAuth(), async (req, res) => {
-//   try {
-//     const response = await AI.chat.completions.create({
-//       model: "gemini-2.0-flash",
-//       messages: [{ role: "user", content: "Say hello in one line." }],
-//       max_tokens: 20,
-//     });
-
-//     res.json({
-//       success: true,
-//       message: response.choices[0].message.content,
-//     });
-//   } catch (err) {
-//     res.status(err.status || 500).json({
-//       success: false,
-//       error: err.message,
-//     });
-//   }
-// });
-
-// /* -------------------- START SERVER -------------------- */
-// const PORT = process.env.PORT || 3000;
-
-// app.listen(PORT, () => {
-//   console.log("Server is running on port", PORT);
-// });
-
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
@@ -152,10 +74,10 @@ import dashboardRoutes from "./routes/dashboard.js";
 
 const app = express();
 
-/* -------------------- INIT -------------------- */
+
 await connectCloudinary();
 
-/* -------------------- CORS (ENV DRIVEN & SAFE) -------------------- */
+
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",")
   : [];
@@ -163,14 +85,14 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow server-to-server, Postman, Render health checks
+      
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      // ❗ DO NOT throw error – this breaks preflight
+    
       return callback(null, false);
     },
     credentials: true,
@@ -179,24 +101,24 @@ app.use(
   })
 );
 
-/* ✅ Preflight must be allowed before auth */
+
 app.options("*", cors());
 
-/* -------------------- MIDDLEWARES -------------------- */
+
 app.use(express.json());
 app.use(clerkMiddleware());
 
-/* -------------------- PUBLIC ROUTE -------------------- */
+
 app.get("/", (req, res) => {
   res.send("Server is Live!");
 });
 
-/* -------------------- PROTECTED ROUTES -------------------- */
+
 app.use("/api/ai", requireAuth(), aiRouter);
 app.use("/api/user", requireAuth(), userRouter);
 app.use("/api", requireAuth(), dashboardRoutes);
 
-/* -------------------- TEST ROUTE -------------------- */
+
 app.get("/api/test-ai", requireAuth(), async (req, res) => {
   try {
     const response = await AI.chat.completions.create({
@@ -217,7 +139,7 @@ app.get("/api/test-ai", requireAuth(), async (req, res) => {
   }
 });
 
-/* -------------------- START SERVER -------------------- */
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

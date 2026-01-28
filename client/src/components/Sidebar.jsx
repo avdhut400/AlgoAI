@@ -1,6 +1,3 @@
-
-
-
 import { Protect, useClerk, useUser } from '@clerk/clerk-react'
 import { 
   Eraser, 
