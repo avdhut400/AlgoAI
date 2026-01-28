@@ -18,6 +18,7 @@ import ContactUs from './components/Contact'
 import Pricing from './components/Pricing'
 import AboutUs from './components/AboutUs'
 import Showcase from './components/Showcase'
+
 const App = () => {
   
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path='review-resume' element={<ReviewResume/>} />
           <Route path='community' element={<Community/>} />
           <Route path='imageUpscaler' element={<ImageUpscaler />} />
+        
           
         </Route>
       </Routes>

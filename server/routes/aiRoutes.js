@@ -9,8 +9,8 @@ import {  startAsyncUpscale,
 import rateLimit from "express-rate-limit";
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1,                 // 15 min मध्ये 20 requests
+  windowMs: 15 * 60 * 1000, 
+  max: 1,                
   message: {
     success: false,
     keyGenerator: (req) => req.ip,
@@ -21,15 +21,15 @@ const limiter = rateLimit({
 
 const aiRouter = express.Router();
 
-aiRouter.post('/generate-article', limiter,auth, generateArticle)
+aiRouter.post('/generate-article',auth, generateArticle)
 aiRouter.post('/generate-blog-title', auth, generateBlogTitle)
-aiRouter.post('/generate-image', auth, generateImage)
+aiRouter.post('/generate-image',limiter, auth, generateImage)
 
-aiRouter.post('/remove-image-background', upload.single('image'), auth, removeImageBackground)
+aiRouter.post('/remove-image-background',limiter, upload.single('image'), auth, removeImageBackground)
 
-aiRouter.post('/remove-image-object', upload.single('image'), auth, removeImageObject)
+aiRouter.post('/remove-image-object',limiter, upload.single('image'), auth, removeImageObject)
 
-aiRouter.post('/resume-review', upload.single('resume'), auth, resumeReview)
+aiRouter.post('/resume-review',limiter, upload.single('resume'), auth, resumeReview)
 
 aiRouter.post(
   "/async-upscale",
