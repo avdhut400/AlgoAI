@@ -72,10 +72,10 @@ const Navbar = () => {
 
   const navItems = [
     { id: "/", label: "Home", icon: <Home size={20} /> },
-    { id: "/discover", label: "Discover", icon: <Compass size={20} /> },
-    { id: "/algorithms", label: "Algorithms", icon: <Cpu size={20} /> },
-    { id: "/community", label: "Community", icon: <Users size={20} /> },
-    { id: "/creators", label: "Creators", icon: <Mic2 size={20} /> },
+    { id: "/contact", label: "ContactUs", icon: <Compass size={20}  /> },
+    { id: "/about", label: "AboutUs", icon: <Cpu size={20}  /> },
+    { id: "/pricing", label: "Pricing", icon: <Users size={20} /> },
+    { id: "/show", label: "Creativity", icon: <Mic2 size={20} /> },
   ];
 
   return (

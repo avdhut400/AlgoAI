@@ -14,17 +14,21 @@ import { useAuth } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 import {Toaster} from 'react-hot-toast'
 import ImageUpscaler from "./pages/ImageUpscaler"
-import Dash from './pages/Dash'
+import ContactUs from './components/Contact'
+import Pricing from './components/Pricing'
+import AboutUs from './components/AboutUs'
+import Showcase from './components/Showcase'
 const App = () => {
-  const {getToken}=useAuth()
-  useEffect(()=>{
-    getToken().then((token)=>console.log(token))
-  },[])
+  
   return (
     <div>
       <Toaster />
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='contact' element={<ContactUs/>} />
+        <Route path='show' element={<Showcase/>} />
+        <Route path='about' element={<AboutUs />} />
+        <Route path='pricing' element={<Pricing />} />
         <Route path='/ai' element={<Layout />}>
           <Route index element={<Dashboard/>} />
           <Route path='write-article' element={<WriteArticle/>} />
@@ -35,8 +39,7 @@ const App = () => {
           <Route path='review-resume' element={<ReviewResume/>} />
           <Route path='community' element={<Community/>} />
           <Route path='imageUpscaler' element={<ImageUpscaler />} />
-          <Route path='d' element={<Dash/>} />
-         
+          
         </Route>
       </Routes>
     </div>
