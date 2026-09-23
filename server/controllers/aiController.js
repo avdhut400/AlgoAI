@@ -279,7 +279,7 @@ export const resumeReview = async (req, res) => {
       });
     }
 
-    // 🔑 Token-safe resume text
+   
     const resumeText = pdfData.text
       .replace(/\s+/g, " ")
       .trim()
